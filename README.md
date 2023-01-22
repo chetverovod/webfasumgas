@@ -8,6 +8,9 @@ based on Ilya Gusev's model
 [link to model](https://huggingface.co/IlyaGusev/rugpt3medium_sum_gazeta)
 FastAPI is used as web-interface.
 
+## Install Anaconda
+See info hear [Digtal Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-20-04)
+
 ## Create virtual environment
 ```
 $ conda create --name py37 python=3.7
@@ -25,8 +28,10 @@ $ conda deactivate
 
 ## Install dependancies
 ```
+$ cd  ~/webfasumgaz
 $ pip install -r requirements.txt
-
+$ pip install "fastapi[all]"
+$ pip install "uvicorn[standard]"
 ```
 
 ## Run web-application
@@ -34,8 +39,8 @@ $ pip install -r requirements.txt
 $ uvicorn webfasumgaz:app
 ```
 URL of service will be printed in command line.
-Use curl or postman for acces to service. For
-example:
+Use curl or postman for acces to service.
+For example:
 ```
 curl -X 'POST' 'http://127.0.0.1:8000/predict/' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"text": "О том, что лидеру республиканцев в Палате представителей может не хватить голосов для получения должности, его оппоненты предупреждали давно. В частности, об этом за пару недель до исторического голосования заявляли пять крайне правых республиканцев из полусекретного кружка «Кокус свободы». Лидеры созданной еще в 2015 году организации не скрывали своего намерения изменить ситуацию в нижней палате сразу после промежуточных выборов в Конгресс, предупреждая, что воспользуются для этого процедурой голосования за спикера. Поскольку в это объединение, по разным данным входят десятки конгрессменов, эксперты не исключали, что желающих выторговать для крайне правых более выгодные для них условия будет гораздо больше, чем пять. Это стало очевидно из подсчета голосов, которые господин Маккарти получил в ходе голосования за него как за лидера партии. В ноябре один из членов «Кокуса свободы», Чип Рой, выдвинул на этот пост альтернативного кандидата — конгрессмена от Аризоны и тоже члена «Кокуса» Энди Биггса."}'
 ```
