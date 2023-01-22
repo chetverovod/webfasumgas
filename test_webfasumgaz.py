@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from fastapi.testclient import TestClient
-from fasumgaz import app
+from webfasumgaz import app
 
 client = TestClient(app)
 
 
-def test_read_fasumgaz():
+def test_read_webfasumgaz():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message":  "Fasumgaz application is online!"}
+    assert response.json() == {"message":  "Webfasumgaz application is online!"}
 
 
 def test_read_empty():
