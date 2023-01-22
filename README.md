@@ -1,12 +1,7 @@
 # webfasumgas
-Web-application based on FastAPI . Makes summary of newspaper article on Russian. 
+Web-application based on FastAPI. Makes summary of newspaper article on Russian. 
 
 Based on Ilya Gusev's model [link to model](https://huggingface.co/IlyaGusev/rugpt3medium_sum_gazeta).
-# fasumgaz
-Web-applicatation for newspaper summarization,
-based on Ilya Gusev's model 
-[link to model](https://huggingface.co/IlyaGusev/rugpt3medium_sum_gazeta)
-FastAPI is used as web-interface.
 
 ## Install Anaconda
 See info hear [Digtal Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-20-04)
@@ -16,14 +11,9 @@ See info hear [Digtal Ocean](https://www.digitalocean.com/community/tutorials/ho
 $ conda create --name py37 python=3.7
 ```
 
-### To activate this environment, use
+### Activate this environment
 ```
 $ conda activate py37
-```
-
-### To deactivate an active environment, use
-```
-$ conda deactivate
 ```
 
 ## Install dependancies
@@ -32,12 +22,26 @@ $ cd  ~/webfasumgaz
 $ pip install -r requirements.txt
 $ pip install "fastapi[all]"
 $ pip install "uvicorn[standard]"
+$ conda install pytorch
+$ conda install transformers
+
 ```
 
-## Run web-application
+## Run web-application with acces trough local host
 ```
 $ uvicorn webfasumgaz:app
 ```
+
+## Run web-application with acces trough external IP-address
+### Enable port
+```
+$ sudo ufw allow 8000
+```
+### Start with option --host 0.0.0.0
+```
+$ uvicorn --host 0.0.0.0 webfasumgaz:app
+```
+
 URL of service will be printed in command line.
 Use curl or postman for acces to service.
 For example:
