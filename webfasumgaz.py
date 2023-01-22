@@ -59,7 +59,7 @@ def summarize(model, tokenizer, article_text):
 
 @app.get("/")
 def root():
-    return {"message": "Fasumgaz application is online!"}
+    return {"message": "Webfasumgaz application is online!"}
 
 @app.post("/predict/")
 def predict(item: Item):
