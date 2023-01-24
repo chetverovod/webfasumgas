@@ -11,7 +11,7 @@ See info hear [Digtal Ocean](https://www.digitalocean.com/community/tutorials/ho
 $ conda create --name py37 python=3.7
 ```
 
-## Activate this environment
+## Activate virtual environment
 ```
 $ conda activate py37
 ```
@@ -31,6 +31,13 @@ $ conda install transformers
 ```
 $ uvicorn webfasumgaz:app
 ```
+URL of service will be printed in command line. Like this:
+```
+INFO:     Started server process [14981]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+```
 
 ## Run web-application with acces trough external IP-address
 ### Enable port
@@ -42,9 +49,16 @@ $ sudo ufw allow 8000
 $ uvicorn --host 0.0.0.0 webfasumgaz:app
 ```
 
-URL of service will be printed in command line.
+URL of service will be printed in command line. Like this:
+```
+INFO:     Started server process [14981]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+```
 Use curl or postman for acces to service.
-For example:
+
+For example (insert IP-address 127.0.0.1 for locall access or public IP-address for external access):
 ```
 curl -X 'POST' 'http://127.0.0.1:8000/predict/' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"text": "О том, что лидеру республиканцев в Палате представителей может не хватить голосов для получения должности, его оппоненты предупреждали давно. В частности, об этом за пару недель до исторического голосования заявляли пять крайне правых республиканцев из полусекретного кружка «Кокус свободы». Лидеры созданной еще в 2015 году организации не скрывали своего намерения изменить ситуацию в нижней палате сразу после промежуточных выборов в Конгресс, предупреждая, что воспользуются для этого процедурой голосования за спикера. Поскольку в это объединение, по разным данным входят десятки конгрессменов, эксперты не исключали, что желающих выторговать для крайне правых более выгодные для них условия будет гораздо больше, чем пять. Это стало очевидно из подсчета голосов, которые господин Маккарти получил в ходе голосования за него как за лидера партии. В ноябре один из членов «Кокуса свободы», Чип Рой, выдвинул на этот пост альтернативного кандидата — конгрессмена от Аризоны и тоже члена «Кокуса» Энди Биггса."}'
 ```
