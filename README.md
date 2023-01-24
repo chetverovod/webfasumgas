@@ -1,7 +1,7 @@
 # webfasumgaz
 Web-application based on FastAPI. Makes summary of newspaper article on Russian. 
 
-Based on Ilya Gusev's model [link to model](https://huggingface.co/IlyaGusev/rugpt3medium_sum_gazeta).
+Based on Ilya Gusev's model, [link to model](https://huggingface.co/IlyaGusev/rugpt3medium_sum_gazeta).
 
 ## Install Anaconda
 See info hear [Digtal Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-20-04)
@@ -11,7 +11,7 @@ See info hear [Digtal Ocean](https://www.digitalocean.com/community/tutorials/ho
 $ conda create --name py37 python=3.7
 ```
 
-### Activate this environment
+## Activate this environment
 ```
 $ conda activate py37
 ```
