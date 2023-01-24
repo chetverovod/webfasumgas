@@ -11,11 +11,11 @@ class Item(BaseModel):
 
 app = FastAPI()
 
-
 model_name = "IlyaGusev/rugpt3medium_sum_gazeta"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
+#-----------------------------------------------------------------
 def summarize(model, tokenizer, article_text):
     """Function makes and returns summary of article_text.
  
@@ -51,16 +51,17 @@ def summarize(model, tokenizer, article_text):
       max_new_tokens = 100
     )
 
-    summary = tokenizer.decode(output_ids[0], skip_special_tokens=False)
+    summary = tokenizer.decode(output_ids[0], skip_special_tokens = False)
     summary = summary.split(tokenizer.sep_token)[1]
     summary = summary.split(tokenizer.eos_token)[0]
     return summary  
 
-
+#-----------------------------------------------------------------
 @app.get("/")
 def root():
     return {"message": "Webfasumgaz application is online!"}
 
+#-----------------------------------------------------------------
 @app.post("/predict/")
 def predict(item: Item):
   """Method builds summary for article from newpaper. 
