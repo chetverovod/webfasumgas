@@ -8,7 +8,7 @@ client = TestClient(app)
 
 #-----------------------------------------------------------------
 def test_read_webfasumgaz():
-     """Test checks handling of empty GET request.
+    """Test checks handling of empty GET request.
     """
     response = client.get("/")
     assert response.status_code == 200
