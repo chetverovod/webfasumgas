@@ -31,20 +31,20 @@ MODEL_NAME = "IlyaGusev/rugpt3medium_sum_gazeta"
 TOKENIZER = AutoTokenizer.from_pretrained(MODEL_NAME)
 MODEL = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
 
-#-----------------------------------------------------------------
+
 def summarize(model, tokenizer, article_text):
     """Function makes and returns summary of article_text.
-  Parameters
-  ----------
-     model:
+    Parameters
+    ----------
+      model:
           Model object.
-     tokenizer:
+      tokenizer:
           Tokens generator.
-      article_text : str
+      article_text: str
           Input text.
 
-  Returns
-  -------
+    Returns
+    -------
       str
           Summary of input text.
    """
@@ -71,14 +71,14 @@ def summarize(model, tokenizer, article_text):
     summary = summary.split(tokenizer.eos_token)[0]
     return summary
 
-#-----------------------------------------------------------------
+
 @app.get("/")
 def root():
     """Function returns greeting text.
     """
     return {"message": "Webfasumgaz application is online!"}
 
-#-----------------------------------------------------------------
+
 @app.post("/predict/")
 def predict(item: Item):
     """Method builds summary for article from newpaper.
