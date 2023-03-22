@@ -36,7 +36,7 @@ def test_read_empty():
     """
     response = CLIENT.post("/predict/",
                            json={"text": ""}
-                          )
+                        )
     json_data = response.json()
     print("json_data =<", json_data, ">")
     assert response.status_code == 200
@@ -54,7 +54,7 @@ def test_read_text():
 
     response = CLIENT.post("/predict/",
                            json={"text": f_data}
-                          )
+                        )
 
     json_data = response.json()
     print("json_data = <", json_data, ">")

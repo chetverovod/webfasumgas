@@ -20,10 +20,12 @@ from pydantic import BaseModel
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
+
 class Item(BaseModel):
     """Class for summarizer of article_text implementation.
     """
     text: str
+
 
 app = FastAPI()
 
